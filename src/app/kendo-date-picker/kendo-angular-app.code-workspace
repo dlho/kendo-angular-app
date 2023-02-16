@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "kendo-angular-app",
+			"path": "../../../kendo-angular-app"
+		},
+		{
+			"name": "kendo-angular-app",
+			"path": "../../../../../repo/kendo-angular-app"
+		},
+		{
+			"name": "kendo-angular-app-1",
+			"path": "../../../../../repo/kendo-angular-app-1"
+		}
+	],
+	"settings": {}
+}

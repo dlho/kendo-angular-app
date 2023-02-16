@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="d-flex justify-content-center flex-nowrap kendo-datepicker">
+        <div class="mx-2 p-2">
+            Date:
+        </div>
+        <div class="mx-2 p-2">
+            <kendo-datepicker
+                [format]="'dd/MM/yyyy'"
+                [(value)]="currentDate"
+                [min]="calendarMin"
+                [max]="calendarMax"  
+                (valueChange)="onChange($event)"    
+            ></kendo-datepicker>
+        </div>
+        <div class="mx-2 p-2">
+            (use Alt+↓ to open the calendar, ← and →  to navigate, ↑ to increment and ↓ to decrement the value)
+        </div>
+    </div>
+  </div>
