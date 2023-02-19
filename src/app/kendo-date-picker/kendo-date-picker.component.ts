@@ -16,7 +16,7 @@ export class KendoDatePickerComponent implements OnChanges {
   public currentDate = new Date();
   public events: string[] = [];  
   
-  constructor(private intl: IntlService, private traceService: TraceService) {}
+  constructor(public intlService: IntlService, private traceService: TraceService) {}
 
   ngOnChanges(changes: SimpleChanges) {
  
@@ -41,7 +41,7 @@ export class KendoDatePickerComponent implements OnChanges {
   }
   
   private formatValue(value?: Date): string {
-    return value ? ` - ${this.intl.formatDate(value, 'dd/MM/yyyy')}` : '';
+    return value ? ` - ${this.intlService.formatDate(value, 'dd/MM/yyyy')}` : '';
   }
 
   whoAmI() {

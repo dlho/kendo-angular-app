@@ -10,7 +10,12 @@
                 [min]="calendarMin"
                 [max]="calendarMax"  
                 (valueChange)="onChange($event)"    
-            ></kendo-datepicker>
+            >
+                <kendo-datepicker-messages
+                    today="Aujourd'hui"
+                >
+                </kendo-datepicker-messages>
+            </kendo-datepicker>
         </div>
         <div class="mx-2 p-2">
             (use Alt+↓ to open the calendar, ← and →  to navigate, ↑ to increment and ↓ to decrement the value)

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { KendoDatePickerComponent } from './kendo-date-picker/kendo-date-picker.component';
 import { LogTraceComponent } from './log-trace/log-trace.component';
+
+import { IntlModule } from '@progress/kendo-angular-intl';
+
+import '@progress/kendo-angular-intl/locales/fr/all';
 
 @NgModule({
   declarations: [
@@ -19,9 +23,15 @@ import { LogTraceComponent } from './log-trace/log-trace.component';
     BrowserModule,
     AppRoutingModule,
     DateInputsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IntlModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "fr-FR",
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
