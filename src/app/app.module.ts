@@ -5,14 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { KendoDatePickerComponent } from './kendo-date-picker/kendo-date-picker.component';
-
-
+import { LogTraceComponent } from './log-trace/log-trace.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    KendoDatePickerComponent
+    KendoDatePickerComponent,
+    LogTraceComponent
   ],
   imports: [
     BrowserModule,

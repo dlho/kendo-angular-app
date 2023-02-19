@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
+import { TraceService } from '../trace.service';
 
 @Component({
   selector: 'app-kendo-date-picker',
@@ -9,14 +10,13 @@ import { IntlService } from '@progress/kendo-angular-intl';
 
 export class KendoDatePickerComponent implements OnChanges {
   @Input() parametre = new Date();
-  @Output() ev = new EventEmitter<string[]>();
   
   public calendarMin: Date = new Date(1960, 0, 1);
   public calendarMax: Date = new Date(2023, 11, 31);   
   public currentDate = new Date();
   public events: string[] = [];  
   
-  constructor(private intl: IntlService) {}
+  constructor(private intl: IntlService, private traceService: TraceService) {}
 
   ngOnChanges(changes: SimpleChanges) {
  
@@ -36,12 +36,16 @@ export class KendoDatePickerComponent implements OnChanges {
   
   private log(event: string, value?: Date): void {
     this.events = [`${event}${this.formatValue(value)}`].concat(this.events);
-    console.log(this.events);
-    this.ev.emit(this.events);
+    //console.log(this.events);
+    this.traceService.add(JSON.stringify(this.events));
   }
   
   private formatValue(value?: Date): string {
     return value ? ` - ${this.intl.formatDate(value, 'dd/MM/yyyy')}` : '';
-  } 
-  
+  }
+
+  whoAmI() {
+    return "Je suis le composant KendoDatePickerComponent";
+  }
+
 }

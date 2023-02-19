@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { KendoDatePickerComponent } from './kendo-date-picker/kendo-date-picker.component';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'kendo-angular-app';
-  items: string[] = []
+  message1: string | undefined
 
   myDate1: Date = new Date(1997, 9, 1);
   myDate2: Date = new Date(1969, 4, 22);
   myDate3: Date = new Date(1965, 1, 6);
   myDate4: Date = new Date();
   
-  onEv(data: string[]) {
-    this.items.push(JSON.stringify(data));
+  @ViewChild(KendoDatePickerComponent) messChild1!: KendoDatePickerComponent
+  @ViewChild('message2') message2!: ElementRef;
+
+  ngAfterViewInit() {
+    this.message1 = this.messChild1.whoAmI();
+    this.message2.nativeElement.textContent = "Je suis le composant LogTraceComponent";
   }
 }

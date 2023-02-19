@@ -1,23 +1,23 @@
 <div class="container" style="margin-top: 70px;">
   <div class="row">
+    <div>{{message1}}</div>  
+    <div #message2></div>
+  </div>
+  <div class="row">
     <div class="col-sm" style="background-color:bisque;">
-      <app-kendo-date-picker [parametre]="myDate1" (ev)="onEv($event)"></app-kendo-date-picker>
+      <app-kendo-date-picker [parametre]="myDate1"></app-kendo-date-picker>
     </div>
     <div class="col-sm" style="background-color:aquamarine;">
-      <app-kendo-date-picker [parametre]="myDate2" (ev)="onEv($event)"></app-kendo-date-picker>
+      <app-kendo-date-picker [parametre]="myDate2"></app-kendo-date-picker>
     </div>    
   </div>
   <div class="row">
     <div class="col-sm" style="background-color:darkorange">
-      <app-kendo-date-picker [parametre]="myDate3" (ev)="onEv($event)"></app-kendo-date-picker>
+      <app-kendo-date-picker [parametre]="myDate3"></app-kendo-date-picker>
     </div>
     <div class="col-sm" style="background-color:dodgerblue">
-      <app-kendo-date-picker [parametre]="myDate4" (ev)="onEv($event)"></app-kendo-date-picker>
+      <app-kendo-date-picker [parametre]="myDate4"></app-kendo-date-picker>
     </div>    
   </div>  
-  <div class="d-flex align-items-center justify-content-center">
-    <div class="overflow-auto bg-light" style="width: 800px; height: 400px;">
-      <div *ngFor="let item of items">{{item}}</div>
-    </div>
-  </div>
+  <app-log-trace></app-log-trace>
 </div>
