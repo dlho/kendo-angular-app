@@ -12,12 +12,15 @@ import { LogTraceComponent } from './log-trace/log-trace.component';
 import { IntlModule } from '@progress/kendo-angular-intl';
 
 import '@progress/kendo-angular-intl/locales/fr/all';
+import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal/modal.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     KendoDatePickerComponent,
-    LogTraceComponent
+    LogTraceComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,9 @@ import '@progress/kendo-angular-intl/locales/fr/all';
       provide: LOCALE_ID,
       useValue: "fr-FR",
     },
+    ModalService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center justify-content-center">
     <div *ngIf="traceService.traces.length">
-        <button type="button" class="clear" (click)="traceService.clear()">Effacer</button>
+        <button type="button" class="btn btn-primary" (click)="traceService.clear()">Delete</button>
         <div class="overflow-auto bg-light" style="width: 800px; height: 400px;">
             <div *ngFor='let trace of traceService.traces'> {{trace}} </div>
         </div>

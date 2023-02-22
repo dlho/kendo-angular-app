@@ -9,6 +9,8 @@ import { TraceService } from '../trace.service';
 
 export class LogTraceComponent {
 
-  constructor(public traceService: TraceService) {}
+  constructor(
+    public traceService: TraceService
+  ) {}
 
 }

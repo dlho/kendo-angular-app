@@ -1,5 +1,6 @@
-import { Component, ViewChild, AfterViewInit, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
 import { KendoDatePickerComponent } from './kendo-date-picker/kendo-date-picker.component';
+import { ModalService } from './modal/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,11 @@ export class AppComponent implements AfterViewInit {
   myDate3: Date = new Date(1965, 1, 6);
   myDate4: Date = new Date();
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private modalService: ModalService,
+    private viewContainerRef: ViewContainerRef
+  ){}
   
   @ViewChild(KendoDatePickerComponent) messChild1!: KendoDatePickerComponent
   @ViewChild('message2') message2!: ElementRef;
@@ -26,4 +31,11 @@ export class AppComponent implements AfterViewInit {
     this.message2.nativeElement.textContent = "Je suis le composant LogTraceComponent";
     this.cdr.detectChanges();
   }
+
+  openModal(e: any, modalTitle: string, modalText: string) {
+    e.preventDefault();
+    this.modalService.setRootViewContainerRef(this.viewContainerRef);
+    this.modalService.addDynamicComponent(modalTitle, modalText);
+  }
+
 }

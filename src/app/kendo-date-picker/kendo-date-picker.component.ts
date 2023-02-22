@@ -16,7 +16,10 @@ export class KendoDatePickerComponent implements OnChanges {
   public currentDate = new Date();
   public events: string[] = [];  
   
-  constructor(public intlService: IntlService, private traceService: TraceService) {}
+  constructor(
+    public intlService: IntlService, 
+    private traceService: TraceService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
  
